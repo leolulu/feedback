@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>模板引擎</title>
+	<script type="text/javascript" src="public/resource/template-web.js"></script>
+	<script type="text/javascript" src=""></script>
+</head>
+<body>
+	<script type="text/html" id="template">
+	SELECT * FROM byw_yw_rel b</br>
+	where 
+	(
+	{{each product}}
+	<div>
+		b.yw_name like '%{{$value}}%'  or
+	</div>
+	{{/each}}
+	);
+</script>
+<script type="text/javascript">
+	var data = [
+	'联网指纹门锁(太犀锁）','联网指纹门锁(燕犀锁）','联网指纹门锁(慧犀锁）','指纹锁（祥和锁）（刷卡）','指纹锁（瑞和锁）','指纹锁（丰和锁）','智能网关(含电源)','三路灯光控制面板','双路灯光控制面板','单路灯光控制面板','情景控制器','集控面板','红外转发器','乐生活套餐','润生活保洁套餐','逸生活保洁套餐','活动套餐66套餐','365+'
+	];
+	var html = template('template',{"product": data});
+	var html2 = html.substr(0,html.length-17) + html.substr(html.length-15);
+	console.log(html2);
+	document.body.innerHTML = (html2);
+</script>
+</body>
+</html>
