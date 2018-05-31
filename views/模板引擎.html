@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>模板引擎</title>
+	<script type="text/javascript" src="../public/resource/template-web.js"></script>
+</head>
+<body>
+	<script type="text/html" id="template">
+	SELECT * FROM byw_yw_rel b</br>
+	where 
+	(
+	{{each product}}
+	<div>
+		b.yw_name like '%{{$value}}%'  or
+	</div>
+	{{/each}}
+	);
+</script>
+<script type="text/javascript">
+	var data = [
+	'郫都_1399套餐_夏普车载净化器IG-GC2-P（红）','郫都_1399套餐_夏普车载净化器IG-GC2-B（黑）','郫都_1399套餐_联想PADTB3-730M（1G版）','郫都_1999套餐_联想PADTB3-730M（1G版）','郫都_1999套餐_安莱特电采暖散热器DR-Z25CB/ALT-E6','郫都_2499套餐_ALIKES垃圾处理器INFL6000','郫都_2499套餐_美的破壁机BL12X11','郫都_2999套餐_联想电脑MIIX320','郫都_2999套餐_小帅智能投影BP0101S','郫都_3699套餐_小帅智能投影BP2355X','郫都_4399套餐_小帅智能投影BP2355X','郫都_3999套餐_美的冰箱BCD-239WTM','郫都_家电叠加_夏普车载净化器IG-GC2-P（红）','郫都_家电叠加_夏普车载净化器IG-GC2-B（黑）','郫都_家电叠加_联想PADTB3-730M（1G版）','郫都_家电叠加_安莱特电采暖散热器DR-Z25CB/ALT-E6','郫都_家电叠加_ALIKES垃圾处理器INFL6000','郫都_家电叠加_美的破壁机BL12X11','郫都_家电叠加_联想电脑MIIX320','郫都_家电叠加_小帅智能投影BP0101S','郫都_家电叠加_小帅智能投影BP2355X','郫都_家电叠加_小帅智能投影BP2355X','郫都_家电叠加_美的冰箱BCD-239WTM'
+	];
+	var html = template('template',{"product": data});
+	var html2 = html.substr(0,html.length-17) + html.substr(html.length-15);
+	console.log(html2);
+	document.body.innerHTML = (html2);
+</script>
+</body>
+</html>
