@@ -1,37 +1,24 @@
-var http = require('http')
-var fs = require('fs')
-var url = require('url')
-var wwwDir = './public'
+var express = require('express')
+var bodyParser = require('body-parser')
+var app = express();
 
-http
-.createServer(function(req,res){
-    var pathname = url.parse(req.url).pathname 
-    var theUrl = wwwDir + pathname
+app.engine('html',require('express-art-template'))
+app.use(bodyParser.urlencoded({extended:false}))
+app.use(bodyParser.json())
 
-    console.log(theUrl)
-
-    if (pathname === '/index') {
-        fs.readFile('./public/html/index.html',function(err, data){
-            res.end(data)
-        })
-    }
-    else if (pathname === '/add') {
-        fs.readFile('./public/html/add.html',function(err, data){
-            res.end(data)
-        })
-    }
-    else {
-        fs.readFile(theUrl, function(err, data){
-            if(err){
-                return 
-            }
-            res.end(data)
-        })        
-    }
-
-    
-    
+// app.get('/tpl_add',function(req,res){
+app.get('/add',function(req,res){
+	res.render('tpl_add.html')
 })
-.listen(3000,function(){
-    console.log('server on')
+
+app.post('/tpl_show',function(req,res){
+	console.log(  req.body )
+	console.log(  req.body.original_text[1] )
+
+	console.log(Date() + ' 进行了一次转换');
+	res.render('tpl_show.html', req.body )
+})
+
+app.listen(3000,function(){
+	console.log('server ON')
 })
