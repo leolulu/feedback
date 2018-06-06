@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/leolulu/feedback#readme",
   "dependencies": {
-    "art-template": "^4.12.2"
+    "art-template": "^4.12.2",
+    "body-parser": "^1.18.3"
   }
 }
