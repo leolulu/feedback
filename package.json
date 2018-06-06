@@ -1,0 +1,24 @@
+{
+  "name": "feedback",
+  "version": "1.0.0",
+  "description": "its hard to git shit!",
+  "main": "router.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leolulu/feedback.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leolulu/feedback/issues"
+  },
+  "homepage": "https://github.com/leolulu/feedback#readme",
+  "dependencies": {
+    "art-template": "^4.12.2"
+  }
+}
