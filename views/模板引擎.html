@@ -8,18 +8,20 @@
 <body>
 	<script type="text/html" id="template">
 	SELECT * FROM byw_yw_rel b</br>
+	///////////////////////////////</br>
+	SELECT * FROM herun_base_yw_temp b</br>
 	where 
 	(
 	{{each product}}
 	<div>
-		b.yw_name like '%{{$value}}%'  or
+		b.yw_type like '%{{$value}}%'  or
 	</div>
 	{{/each}}
 	);
 </script>
 <script type="text/javascript">
 	var data = [
-	'保洁活动','保洁活动','365+'
+	'乐生活套餐','润生活保洁套餐','逸生活保洁套餐','深度吸尘','地板抛光打蜡','床铺沙发除螨','油烟机清洗（不拆机体）','油烟机清洗（拆机体）','空调清洗（挂机）','空调清洗（柜机）','洗衣机清洗','冰箱清洗（300L以内）','冰箱清洗（300L以上）','热水器清洗（燃气）','饮水机清洗','微波炉清洗'
 	];
 	var html = template('template',{"product": data});
 	var html2 = html.substr(0,html.length-17) + html.substr(html.length-15);
